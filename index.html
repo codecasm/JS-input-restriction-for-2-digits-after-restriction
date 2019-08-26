@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS restriction after 2 decimal for input</title>
+
+    <style>
+        .note {
+            color: #f00;
+        }
+    </style>
+
+    <script>
+        function validate(e) {
+            var t = e.value;
+            e.value = (t.indexOf(".") >= 0) ? (t.substr(0, t.indexOf(".")) + t.substr(t.indexOf("."), 3)) : t;
+        }
+    </script>
+</head>
+
+<body>
+    <center>
+        <h1>JS restriction after 2 decimal for input</h1>
+        <hr>
+        <label>Enter your input value:</label>
+        <input type="text" id="resultText" oninput="validate(this)" />
+        <hr>
+        <h3 class="note">NOTE:</h3>
+        <p>1. need to apply validations for keys like: <strong>'-','+','e',</strong> etc.</p>
+        <p>2. purposefully input type is kept to <strong>text</strong>, because <strong>number</strong> won't work
+            perfectly till the validation not done mentioned in <strong>point 1</strong>.</p>
+        <p>3. it also accepts more than 1 decimal, it also lac due to validation</p>
+    </center>
+</body>
+
+</html>
